@@ -150,3 +150,139 @@ body {
 .btn-submit:hover {
     background-color: #085041;
 }
+
+/* ===== CONTENU PRINCIPAL ===== */
+.main-content {
+    padding: 32px 40px;
+}
+
+/* ===== STATISTIQUES ===== */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.stat-card {
+    background: white;
+    border: 1px solid #e8e8e0;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.stat-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.stat-icon svg {
+    width: 22px;
+    height: 22px;
+}
+
+.icon-green  { background: #e1f5ee; color: #0F6E56; }
+.icon-blue   { background: #e1effe; color: #1a6fb5; }
+.icon-orange { background: #fff3e0; color: #e07b00; }
+
+.stat-number {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1a1a2e;
+}
+
+.stat-label {
+    font-size: 13px;
+    color: #888;
+    margin-top: 2px;
+}
+
+/* ===== SECTION STAGES ===== */
+.section-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1a1a2e;
+    margin-bottom: 16px;
+}
+
+/* ===== ÉTAT VIDE ===== */
+.empty-state {
+    background: white;
+    border: 1px solid #e8e8e0;
+    border-radius: 12px;
+    padding: 48px;
+    text-align: center;
+}
+
+.empty-title {
+    font-size: 16px;
+    color: #888;
+    margin-bottom: 6px;
+}
+
+.empty-subtitle {
+    font-size: 14px;
+    color: #aaa;
+}
+
+/* ===== CARDS STAGES ===== */
+.stages-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.stage-card {
+    background: white;
+    border: 1px solid #e8e8e0;
+    border-radius: 12px;
+    padding: 20px 24px;
+}
+
+.stage-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.stage-entreprise {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a1a2e;
+}
+
+.stage-poste {
+    font-size: 14px;
+    color: #555;
+    margin-top: 2px;
+}
+
+.stage-badge {
+    background: #e1f5ee;
+    color: #0F6E56;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+
+.stage-card-body {
+    font-size: 13px;
+    color: #888;
+    display: flex;
+    gap: 16px;
+}
+
+.stage-dates {
+    font-size: 13px;
+    color: #888;
+}

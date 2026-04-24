@@ -14,37 +14,42 @@
             </button>
         </div>
 
-        <form>
+        <!-- action="/stages/creer" → envoie au PostMapping  -->
+        <!-- method="post" → c'est une requête POST           -->
+        <!-- th:object="${stage}" → lie le formulaire à l'objet Stage -->
+        <form action="/stages/creer" method="post" th:object="${stage}">
+
             <div class="form-row">
                 <div class="form-group">
                     <label>Entreprise</label>
-                    <input type="text" placeholder="Nom de l'entreprise">
+                    <!-- th:field="*{entreprise}" → lie ce champ à stage.entreprise -->
+                    <input type="text" th:field="*{entreprise}" placeholder="Nom de l'entreprise">
                 </div>
                 <div class="form-group">
                     <label>Poste</label>
-                    <input type="text" placeholder="Votre poste">
+                    <input type="text" th:field="*{poste}" placeholder="Votre poste">
                 </div>
             </div>
 
             <div class="form-group">
                 <label>Encadrant</label>
-                <input type="text" placeholder="Nom de l'encadrant">
+                <input type="text" th:field="*{encadrant}" placeholder="Nom de l'encadrant">
             </div>
 
             <div class="form-row">
                 <div class="form-group">
                     <label>Date de début</label>
-                    <input type="date">
+                    <input type="date" th:field="*{dateDebut}">
                 </div>
                 <div class="form-group">
                     <label>Date de fin</label>
-                    <input type="date">
+                    <input type="date" th:field="*{dateFin}">
                 </div>
             </div>
 
             <div class="form-group">
                 <label>Description</label>
-                <textarea placeholder="Décrivez votre stage..."></textarea>
+                <textarea th:field="*{description}" placeholder="Décrivez votre stage..."></textarea>
             </div>
 
             <button type="submit" class="btn-submit">Créer le stage</button>
