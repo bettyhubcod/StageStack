@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
+<body>
+
+<!-- th:fragment="modalStage" → nom du fragment -->
+<div class="modal-overlay" id="modal" th:fragment="modalStage">
+    <div class="modal">
+
+        <div class="modal-header">
+            <h2>Créer un stage</h2>
+            <button class="close-btn"
+                    onclick="document.getElementById('modal').classList.remove('active')">
+                ✕
+            </button>
+        </div>
+
+        <form>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Entreprise</label>
+                    <input type="text" placeholder="Nom de l'entreprise">
+                </div>
+                <div class="form-group">
+                    <label>Poste</label>
+                    <input type="text" placeholder="Votre poste">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Encadrant</label>
+                <input type="text" placeholder="Nom de l'encadrant">
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Date de début</label>
+                    <input type="date">
+                </div>
+                <div class="form-group">
+                    <label>Date de fin</label>
+                    <input type="date">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Description</label>
+                <textarea placeholder="Décrivez votre stage..."></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit">Créer le stage</button>
+        </form>
+
+    </div>
+</div>
+
+</body>
+</html>
