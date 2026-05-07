@@ -5,7 +5,7 @@ import lombok.Data;
 
 import java.time.LocalDate;
 
-@Entity
+
 @Data
 public class NoteResponse {
     private Long id;

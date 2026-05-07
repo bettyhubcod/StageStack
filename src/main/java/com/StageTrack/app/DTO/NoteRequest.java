@@ -5,7 +5,7 @@ import lombok.Data;
 
 import java.time.LocalDate;
 
-@Entity
+
 @Data
 public class NoteRequest {
     private String fait;
