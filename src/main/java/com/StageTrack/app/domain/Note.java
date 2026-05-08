@@ -32,6 +32,6 @@ public class Note {
     private LocalDate date;
 
     @ManyToOne
-    @JoinColumn(name = "stage_id", nullable = false)
+    @JoinColumn(name = "stage_id", nullable = true)
     private Stage stage;
 }

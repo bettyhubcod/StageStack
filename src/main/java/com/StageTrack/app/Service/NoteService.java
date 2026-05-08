@@ -4,6 +4,7 @@ import com.StageTrack.app.DTO.NoteRequest;
 import com.StageTrack.app.DTO.NoteResponse;
 import com.StageTrack.app.Repository.NoteRepository;
 import com.StageTrack.app.domain.Note;
+import com.StageTrack.app.domain.Stage;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +19,7 @@ public class NoteService {
     private final NoteRepository noteRepository;
 
     public NoteResponse creer(NoteRequest request) {
+
 
 
         Note note = new Note();
