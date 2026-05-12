@@ -90,26 +90,23 @@
 
                 <div class="stage-card-header">
                     <div>
-                        <!-- th:text="${stage.entreprise}" → affiche le nom de l'entreprise -->
-                        <h3 class="stage-entreprise" th:text="${stage.entreprise}">Entreprise</h3>
-                        <p class="stage-poste" th:text="${stage.poste}">Poste</p>
+                        <h3 class="stage-entreprise" th:text="${stage.titre}">Titre</h3>
+                        <p class="stage-poste" th:text="${stage.entreprise.nomEntreprise}">Entreprise</p>
                     </div>
-                    <span class="stage-badge">À venir</span>
+                    <span class="stage-badge" th:text="${stage.statut}">Statut</span>
                 </div>
 
                 <div class="stage-card-body">
-                    <p class="stage-encadrant" th:if="${stage.encadrant != null}"
-                       th:text="${stage.encadrant}">Encadrant</p>
+                    <p class="stage-encadrant" th:if="${stage.maitreStage != null}"
+                       th:text="${stage.maitreStage.nom + ' ' + stage.maitreStage.prenom}">
+                        Maître de stage
+                    </p>
 
-                    <!--
-                        th:if="${stage.dateDebut != null}"
-                        → affiche les dates seulement si elles existent
-                    -->
                     <p class="stage-dates"
                        th:if="${stage.dateDebut != null}"
                        th:text="${#temporals.format(stage.dateDebut, 'dd MMM yyyy')}
-                                    + ' — ' +
-                                    ${#temporals.format(stage.dateFin, 'dd MMM yyyy')}">
+                + ' — ' +
+                ${#temporals.format(stage.dateFin, 'dd MMM yyyy')}">
                         Dates
                     </p>
                 </div>

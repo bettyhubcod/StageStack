@@ -286,3 +286,16 @@ body {
     font-size: 13px;
     color: #888;
 }
+.form-group select {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 14px;
+    outline: none;
+    width: 100%;
+    background: white;
+}
+
+.form-group select:focus {
+    border-color: #0F6E56;
+}

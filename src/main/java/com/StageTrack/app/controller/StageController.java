@@ -1,6 +1,8 @@
 package com.StageTrack.app.controller;
 
-import com.StageTrack.app.domain.Stage;
+import com.StageTrack.app.DTO.StageDTO;
+import com.StageTrack.app.repository.EntrepriseRepository;
+import com.StageTrack.app.repository.MaitreStageRepository;
 import com.StageTrack.app.service.StageService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,25 +14,29 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class StageController {
 
     private final StageService stageService;
+    private final EntrepriseRepository entrepriseRepository;
+    private final MaitreStageRepository maitreStageRepository;
 
-    public StageController(StageService stageService) {
+    public StageController(StageService stageService,
+                           EntrepriseRepository entrepriseRepository,
+                           MaitreStageRepository maitreStageRepository) {
         this.stageService = stageService;
+        this.entrepriseRepository = entrepriseRepository;
+        this.maitreStageRepository = maitreStageRepository;
     }
 
-    // Affiche la page home avec la liste des stages
     @GetMapping("/")
     public String home(Model model) {
-        // On envoie la liste des stages à la page HTML
         model.addAttribute("stages", stageService.tousLesStages());
-        // On prépare un objet vide pour le formulaire
-        model.addAttribute("stage", new Stage());
+        model.addAttribute("stageDTO", new StageDTO());
+        model.addAttribute("entreprises", entrepriseRepository.findAll());
+        model.addAttribute("maitresStage", maitreStageRepository.findAll());
         return "home";
     }
 
-    // Reçoit les données du formulaire quand on clique "Créer le stage"
     @PostMapping("/stages/creer")
-    public String creerStage(@ModelAttribute Stage stage) {
-        stageService.sauvegarder(stage);
-        return "redirect:/";  // Redirige vers la page home après création
+    public String creerStage(@ModelAttribute StageDTO stageDTO) {
+        stageService.creerDepuisDTO(stageDTO);
+        return "redirect:/";
     }
 }

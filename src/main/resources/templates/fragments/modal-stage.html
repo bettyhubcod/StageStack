@@ -2,38 +2,47 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="fr">
 <body>
 
-<!-- th:fragment="modalStage" → nom du fragment -->
 <div class="modal-overlay" id="modal" th:fragment="modalStage">
     <div class="modal">
 
         <div class="modal-header">
             <h2>Créer un stage</h2>
             <button class="close-btn"
-                    onclick="document.getElementById('modal').classList.remove('active')">
-                ✕
-            </button>
+                    onclick="document.getElementById('modal').classList.remove('active')">✕</button>
         </div>
 
-        <!-- action="/stages/creer" → envoie au PostMapping  -->
-        <!-- method="post" → c'est une requête POST           -->
-        <!-- th:object="${stage}" → lie le formulaire à l'objet Stage -->
-        <form action="/stages/creer" method="post" th:object="${stage}">
+        <form action="/stages/creer" method="post" th:object="${stageDTO}">
 
-            <div class="form-row">
-                <div class="form-group">
-                    <label>Entreprise</label>
-                    <!-- th:field="*{entreprise}" → lie ce champ à stage.entreprise -->
-                    <input type="text" th:field="*{entreprise}" placeholder="Nom de l'entreprise">
-                </div>
-                <div class="form-group">
-                    <label>Poste</label>
-                    <input type="text" th:field="*{poste}" placeholder="Votre poste">
-                </div>
+            <div class="form-group">
+                <label>Titre du stage</label>
+                <input type="text" th:field="*{titre}" placeholder="Ex: Stage développeur web">
             </div>
 
             <div class="form-group">
-                <label>Encadrant</label>
-                <input type="text" th:field="*{encadrant}" placeholder="Nom de l'encadrant">
+                <label>Poste</label>
+                <input type="text" th:field="*{poste}" placeholder="Votre poste">
+            </div>
+
+            <div class="form-group">
+                <label>Entreprise</label>
+                <select th:field="*{entrepriseId}">
+                    <option value="">-- Choisir une entreprise --</option>
+                    <option th:each="e : ${entreprises}"
+                            th:value="${e.id}"
+                            th:text="${e.nomEntreprise}">
+                    </option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Maître de stage</label>
+                <select th:field="*{maitreStageId}">
+                    <option value="">-- Choisir un maître de stage (optionnel) --</option>
+                    <option th:each="m : ${maitresStage}"
+                            th:value="${m.id}"
+                            th:text="${m.nom + ' ' + m.prenom}">
+                    </option>
+                </select>
             </div>
 
             <div class="form-row">

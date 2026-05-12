@@ -1,11 +1,8 @@
 package com.StageTrack.app.DTO;
 
-import jakarta.persistence.Entity;
 import lombok.Data;
-
 import java.time.LocalDate;
 
-@Entity
 @Data
 public class NoteResponse {
     private Long id;
